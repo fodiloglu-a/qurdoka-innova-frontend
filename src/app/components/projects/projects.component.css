@@ -1,0 +1,258 @@
+/* projects.component.css */
+
+/* Ana konteynır stilleri */
+.projects-container {
+  font-family: 'Arial', sans-serif;
+  color: #333333; /* Genel metin rengi */
+}
+
+/* Hero bölümü stilleri */
+.projects-hero {
+  padding: 6rem 0 4rem;
+  background: linear-gradient(to right, #f7f9fc, #eef1f5); /* Arka plan geçiş rengi */
+  position: relative;
+  overflow: hidden;
+}
+
+.container-modern {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.hero-content {
+  max-width: 700px;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(0, 123, 255, 0.1); /* Açık mavi */
+  color: #007bff; /* Mavi */
+  padding: 0.5rem 1rem;
+  border-radius: 50px; /* Tam yuvarlak köşe */
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+
+.hero-badge .icon {
+  margin-right: 0.5rem;
+  width: 18px;
+  height: 18px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  color: #212529; /* Başlık koyu renk */
+}
+
+.text-primary {
+  color: #007bff; /* Mavi */
+}
+
+.hero-description {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #6c757d; /* Açık gri */
+}
+
+.hero-stats {
+  display: flex;
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #007bff; /* Mavi */
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: #6c757d; /* Açık gri */
+}
+
+/* Filtreler bölümü */
+.filters-section {
+  padding: 3rem 0;
+  background-color: #f8f9fa; /* Hafif gri arka plan */
+}
+
+.filters-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filters-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #212529; /* Koyu başlık */
+}
+
+.filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.filter-btn {
+  display: flex;
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background-color: #ffffff; /* Beyaz */
+  border: 1px solid #dee2e6; /* Açık gri çerçeve */
+  border-radius: 8px; /* Hafif yuvarlatılmış köşe */
+  color: #495057; /* Koyu gri metin */
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.filter-btn .icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.5rem;
+}
+
+.filter-btn:hover {
+  background-color: #e9ecef; /* Hafif açık gri */
+  border-color: #0056b3; /* Daha koyu mavi */
+}
+
+.filter-btn.active {
+  background-color: #007bff; /* Mavi */
+  border-color: #007bff; /* Mavi */
+  color: white; /* Beyaz */
+}
+
+.filter-btn.active .icon {
+  color: white; /* Beyaz */
+}
+
+/* Font Awesome ikonları için özel stiller */
+.icon-fa {
+  margin-right: 0.5rem;
+  font-size: 1rem;
+}
+
+/* Responsive tasarım */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-stats {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .filter-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* Projelerin listesi için stil */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 3rem 0;
+}
+
+.project-card {
+  background-color: #ffffff; /* Beyaz */
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* Hafif gölge */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Daha belirgin gölge */
+}
+
+.project-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-content {
+  padding: 1.5rem;
+}
+
+.project-category {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(0, 123, 255, 0.1); /* Açık mavi */
+  color: #007bff; /* Mavi */
+  padding: 0.25rem 0.75rem;
+  border-radius: 50px; /* Tam yuvarlatılmış */
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #212529; /* Başlık rengi */
+}
+
+.project-description {
+  font-size: 0.875rem;
+  color: #495057; /* Açık koyu gri */
+}
+
+/* Modern buton stilleri */
+.btn-modern {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 50px; /* Yuvarlatılmış köşe */
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: #007bff; /* Mavi */
+  color: white;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; /* Daha koyu mavi */
+}
+
+.btn-secondary {
+  background-color: #6c757d; /* Gri */
+  color: white;
+  border: none;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268; /* Daha koyu gri */
+}

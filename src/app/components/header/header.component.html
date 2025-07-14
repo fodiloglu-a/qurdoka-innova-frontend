@@ -1,0 +1,62 @@
+<!-- src/app/components/header/header.component.html -->
+<header class="header" [class.scrolled]="isScrolled">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <!-- Logo -->
+      <a class="navbar-brand" routerLink="/">
+        <div class="logo-container">
+          <span class="logo-text">QURDOKA</span>
+          <span class="logo-subtitle">INNOVA</span>
+        </div>
+      </a>
+
+      <!-- Mobile Toggle -->
+      <button
+        class="navbar-toggler"
+        type="button"
+        [attr.aria-expanded]="isMobileMenuOpen"
+        (click)="toggleMobileMenu()">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navigation Menu -->
+      <div class="navbar-collapse" [class.show]="isMobileMenuOpen">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link"
+               routerLink="/"
+               routerLinkActive="active"
+               [routerLinkActiveOptions]="{exact: true}"
+               (click)="closeMobileMenu()">
+              Ana Sayfa
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+               routerLink="/projeler"
+               routerLinkActive="active"
+               (click)="closeMobileMenu()">
+              Projeler
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+               routerLink="/hakkinda"
+               routerLinkActive="active"
+               (click)="closeMobileMenu()">
+              Hakkında
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link btn-contact"
+               routerLink="/iletisim"
+               routerLinkActive="active"
+               (click)="closeMobileMenu()">
+              İletişim
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
