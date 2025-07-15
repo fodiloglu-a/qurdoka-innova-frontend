@@ -2,6 +2,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 // Arayüzler
 interface Project {
@@ -31,7 +32,7 @@ interface FilterCategory {
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslatePipe],
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
 })

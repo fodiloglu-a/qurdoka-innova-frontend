@@ -1,11 +1,8 @@
 <div class="contact-container">
   <section class="contact-hero text-center">
     <div class="container-modern">
-      <h1 class="hero-title">Bize Ulaşın</h1>
-      <p class="hero-subtitle">
-        Projeniz hakkında konuşmak, bir soru sormak veya sadece merhaba demek
-        için buradayız.
-      </p>
+      <h1 class="hero-title">{{ 'CONTACT.HERO.TITLE' | translate }}</h1>
+      <p class="hero-subtitle">{{ 'CONTACT.HERO.SUBTITLE' | translate }}</p>
     </div>
   </section>
 
@@ -14,51 +11,51 @@
       <div class="row">
         <div class="col-lg-7 mb-5 mb-lg-0">
           <div class="form-wrapper">
-            <h3>Mesaj Gönderin</h3>
+            <h3>{{ 'CONTACT.FORM.TITLE' | translate }}</h3>
             <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="name">Adınız Soyadınız *</label>
+                    <label for="name">{{ 'CONTACT.FORM.NAME' | translate }} *</label>
                     <input type="text" id="name" formControlName="name" class="form-control"
                            [class.is-invalid]="isFieldInvalid('name')" />
                     <div *ngIf="isFieldInvalid('name')" class="invalid-feedback">
-                      Ad ve soyad alanı zorunludur.
+                      {{ 'CONTACT.FORM.ERRORS.NAME_REQUIRED' | translate }}
                     </div>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="email">E-posta Adresiniz *</label>
+                    <label for="email">{{ 'CONTACT.FORM.EMAIL' | translate }} *</label>
                     <input type="email" id="email" formControlName="email" class="form-control"
                            [class.is-invalid]="isFieldInvalid('email')" />
                     <div *ngIf="isFieldInvalid('email')" class="invalid-feedback">
-                      Lütfen geçerli bir e-posta adresi girin.
+                      {{ 'CONTACT.FORM.ERRORS.EMAIL_INVALID' | translate }}
                     </div>
                   </div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="service">İlgilendiğiniz Hizmet</label>
+                <label for="service">{{ 'CONTACT.FORM.SERVICE.TITLE' | translate }}</label>
                 <select id="service" formControlName="service" class="form-select">
-                  <option value="">Hizmet seçin...</option>
-                  <option value="web-development">Web Geliştirme</option>
-                  <option value="web-design">Web Tasarım</option>
-                  <option value="e-commerce">E-Ticaret</option>
+                  <option value="">{{ 'CONTACT.FORM.SERVICE.PLACEHOLDER' | translate }}</option>
+                  <option value="web-development">{{ 'CONTACT.FORM.SERVICE.OPTIONS.WEB_DEV' | translate }}</option>
+                  <option value="web-design">{{ 'CONTACT.FORM.SERVICE.OPTIONS.WEB_DESIGN' | translate }}</option>
+                  <option value="e-commerce">{{ 'CONTACT.FORM.SERVICE.OPTIONS.ECOMMERCE' | translate }}</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="message">Mesajınız *</label>
+                <label for="message">{{ 'CONTACT.FORM.MESSAGE' | translate }} *</label>
                 <textarea id="message" formControlName="message" rows="5" class="form-control"
                           [class.is-invalid]="isFieldInvalid('message')"></textarea>
                 <div *ngIf="isFieldInvalid('message')" class="invalid-feedback">
-                  Mesaj alanı en az 10 karakter olmalıdır.
+                  {{ 'CONTACT.FORM.ERRORS.MESSAGE_REQUIRED' | translate }}
                 </div>
               </div>
               <button type="submit" class="btn-modern btn-primary btn-lg w-100"
                       [disabled]="contactForm.invalid || isSubmitting">
-                <span *ngIf="!isSubmitting">Gönder</span>
-                <span *ngIf="isSubmitting">Gönderiliyor...</span>
+                <span *ngIf="!isSubmitting">{{ 'CONTACT.FORM.BUTTON.SEND' | translate }}</span>
+                <span *ngIf="isSubmitting">{{ 'CONTACT.FORM.BUTTON.SENDING' | translate }}</span>
               </button>
             </form>
           </div>
@@ -66,11 +63,8 @@
 
         <div class="col-lg-5">
           <div class="info-wrapper">
-            <h3>İletişim Bilgileri</h3>
-            <p>
-              Aşağıdaki kanallardan da bizimle hızlıca iletişime
-              geçebilirsiniz.
-            </p>
+            <h3>{{ 'CONTACT.INFO.TITLE' | translate }}</h3>
+            <p>{{ 'CONTACT.INFO.SUBTITLE' | translate }}</p>
             <ul class="contact-list">
               <li>
                 <i class="fas fa-map-marker-alt"></i>
@@ -78,7 +72,7 @@
               </li>
               <li>
                 <i class="fas fa-envelope"></i>
-                <a href="mailto:info@qurdokainnova.com">info-qurdokainnova.com</a>
+                <a href="mailto:info@qurdokainnova.com">{{email}}</a>
               </li>
               <li>
                 <i class="fas fa-phone-alt"></i>
@@ -99,9 +93,9 @@
   <div class="success-modal-wrapper" *ngIf="showSuccessMessage">
     <div class="success-modal-content">
       <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-      <h4>Mesajınız Alındı!</h4>
-      <p>En kısa sürede size geri dönüş yapacağız. Teşekkür ederiz.</p>
-      <button (click)="closeSuccessMessage()" class="btn-modern btn-primary">Kapat</button>
+      <h4>{{ 'CONTACT.SUCCESS.TITLE' | translate }}</h4>
+      <p>{{ 'CONTACT.SUCCESS.TEXT' | translate }}</p>
+      <button (click)="closeSuccessMessage()" class="btn-modern btn-primary">{{ 'CONTACT.SUCCESS.BUTTON_CLOSE' | translate }}</button>
     </div>
   </div>
 </div>

@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -44,7 +45,11 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private routerSubscription?: Subscription;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private translate: TranslateService) {
+    // Varsayılan dili ayarla ve tarayıcı dilini kullanmayı dene
+    translate.setDefaultLang('tr');
+    translate.use(translate.getBrowserLang()?.match(/tr|uk/) ? translate.getBrowserLang()! : 'tr');
+  }
 
   ngOnInit(): void {
     this.setupRouteChangeListeners();

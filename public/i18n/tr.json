@@ -1,0 +1,129 @@
+{
+  "HEADER": {
+    "HOME": "Ana Sayfa",
+    "ABOUT": "Hakkında",
+    "PROJECTS": "Projeler",
+    "CONTACT": "İletişime Geç"
+  },
+  "FOOTER": {
+    "ABOUT_TEXT": "Yenilikçi teknolojilerle işletmenizin dijital dünyadaki partneriyiz. Kiev merkezli ekibimizle global standartlarda web çözümleri sunuyoruz.",
+    "COMPANY": {
+      "TITLE": "Şirket",
+      "ABOUT": "Hakkımızda",
+      "PROJECTS": "Projelerimiz",
+      "CONTACT": "İletişim"
+    },
+    "SERVICES": {
+      "TITLE": "Hizmetler",
+      "WEB_DEV": "Web Geliştirme",
+      "UI_UX": "UI/UX Tasarım",
+      "ECOMMERCE": "E-Ticaret"
+    },
+    "NEWSLETTER": {
+      "TITLE": "Bültenimize Abone Olun",
+      "SUBTITLE": "En son haberleri ve makaleleri posta kutunuza alın.",
+      "PLACEHOLDER": "E-posta adresiniz"
+    },
+    "COPYRIGHT": "© {{year}} Qurdoka Innova. Tüm Hakları Saklıdır."
+  },
+  "HOME": {
+    "HERO": {
+      "TITLE": "Yaratıcı Fikirleri <span class='text-gradient'>Dijital Gerçekliğe</span> Dönüştürüyoruz",
+      "SUBTITLE": "Qurdoka Innova Tech olarak, işletmenizin dijital potansiyelini ortaya çıkaran, kullanıcı odaklı ve modern web çözümleri sunuyoruz.",
+      "BUTTON_PROJECTS": "Projelerimizi Keşfedin",
+      "BUTTON_ABOUT": "Daha Fazla Bilgi"
+    },
+    "SERVICES": {
+      "TITLE": "Neler Yapıyoruz?",
+      "SUBTITLE": "İşletmenizin ihtiyaçlarına yönelik, uçtan uca dijital hizmetler sunuyoruz."
+    },
+    "WHY_US": {
+      "IMAGE_TEXT": "Uzman Ekip",
+      "TITLE": "Neden Bizimle Çalışmalısınız?"
+    }
+  },
+  "ABOUT": {
+    "HERO": {
+      "TITLE": "Biz Kimiz?",
+      "SUBTITLE": "Teknolojiye tutkuyla bağlı, yenilikçi ve sonuç odaklı bir ekibiz. Qurdoka Innova'nın hikayesini ve bizi biz yapan değerleri keşfedin."
+    },
+    "MISSION": {
+      "TITLE": "Misyonumuz",
+      "TEXT": "Müşterilerimizin dijital dünyadaki potansiyelini en üst düzeye çıkarmak için yaratıcı, güvenilir ve ölçeklenebilir web çözümleri üretmek."
+    },
+    "VISION": {
+      "TITLE": "Vizyonumuz",
+      "TEXT": "Ukrayna'da ve uluslararası arenada, web teknolojileri alanında yenilikçiliğin ve kalitenin öncüsü olmak."
+    },
+    "JOURNEY": {
+      "TITLE": "Yolculuğumuz",
+      "SUBTITLE": "Kuruluşumuzdan bugüne önemli anlar."
+    },
+    "TEAM": {
+      "TITLE": "Ekibimizle Tanışın",
+      "SUBTITLE": "Başarımızın arkasındaki yetenekli ve tutkulu yüzler."
+    },
+    "CTA": {
+      "TITLE": "Harika Bir Fikriniz mi Var?",
+      "DESCRIPTION": "Ekibimiz, fikrinizi bir sonraki büyük projeye dönüştürmek için hazır. Hadi tanışalım!",
+      "BUTTON": "Projenizi Anlatın"
+    }
+  },
+  "PROJECTS": {
+    "HERO": {
+      "TITLE": "Dijitalde <span class='text-primary'>İz Bırakan</span> İşler",
+      "SUBTITLE": "Yenilikçi fikirleri, kodun gücüyle birleştirerek oluşturduğumuz projeleri keşfedin. Her biri, kendi alanında fark yaratan çözümler sunuyor."
+    },
+    "BUTTON_LOAD_MORE": "Daha Fazla Göster",
+    "MODAL": {
+      "TEAM_SIZE": "{{size}} Kişilik Ekip",
+      "ABOUT_TITLE": "Proje Hakkında",
+      "FEATURES_TITLE": "Anahtar Özellikler",
+      "TECH_TITLE": "Kullanılan Teknolojiler",
+      "BUTTON_LIVE_DEMO": "Canlı Demo"
+    }
+  },
+  "CONTACT": {
+    "HERO": {
+      "TITLE": "Bize Ulaşın",
+      "SUBTITLE": "Projeniz hakkında konuşmak, bir soru sormak veya sadece merhaba demek için buradayız."
+    },
+    "FORM": {
+      "TITLE": "Mesaj Gönderin",
+      "NAME": "Adınız Soyadınız",
+      "EMAIL": "E-posta Adresiniz",
+      "MESSAGE": "Mesajınız",
+      "SERVICE": {
+        "TITLE": "İlgilendiğiniz Hizmet",
+        "PLACEHOLDER": "Hizmet seçin...",
+        "OPTIONS": {
+          "WEB_DEV": "Web Geliştirme",
+          "WEB_DESIGN": "Web Tasarım",
+          "ECOMMERCE": "E-Ticaret"
+        }
+      },
+      "BUTTON": {
+        "SEND": "Gönder",
+        "SENDING": "Gönderiliyor..."
+      },
+      "ERRORS": {
+        "NAME_REQUIRED": "Ad ve soyad alanı zorunludur.",
+        "EMAIL_INVALID": "Lütfen geçerli bir e-posta adresi girin.",
+        "MESSAGE_REQUIRED": "Mesaj alanı en az 10 karakter olmalıdır."
+      }
+    },
+    "INFO": {
+      "TITLE": "İletişim Bilgileri",
+      "SUBTITLE": "Aşağıdaki kanallardan da bizimle hızlıca iletişime geçebilirsiniz."
+    },
+    "SUCCESS": {
+      "TITLE": "Mesajınız Alındı!",
+      "TEXT": "En kısa sürede size geri dönüş yapacağız. Teşekkür ederiz.",
+      "BUTTON_CLOSE": "Kapat"
+    }
+  },
+  "NOTIFICATIONS": {
+    "NEWSLETTER_SUCCESS": "Başarıyla abone oldunuz! Teşekkür ederiz.",
+    "NEWSLETTER_ERROR": "Lütfen geçerli bir e-posta adresi girin."
+  }
+}

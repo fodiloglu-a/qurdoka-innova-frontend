@@ -2,10 +2,9 @@
   <section class="about-hero">
     <div class="container-modern">
       <div class="hero-content text-center">
-        <h1 class="hero-title animate-fade-in-up">Biz Kimiz?</h1>
+        <h1 class="hero-title animate-fade-in-up">{{ 'ABOUT.HERO.TITLE' | translate }}</h1>
         <p class="hero-subtitle animate-fade-in-up animate-delay-1">
-          Teknolojiye tutkuyla bağlı, yenilikçi ve sonuç odaklı bir ekibiz.
-          Qurdoka InnovaTech'nın hikayesini ve bizi biz yapan değerleri keşfedin.
+          {{ 'ABOUT.HERO.SUBTITLE' | translate }}
         </p>
       </div>
     </div>
@@ -19,12 +18,8 @@
             <div class="mv-icon mission">
               <i class="fas fa-bullseye"></i>
             </div>
-            <h3>Misyonumuz</h3>
-            <p>
-              Müşterilerimizin dijital dünyadaki potansiyelini en üst düzeye
-              çıkarmak için yaratıcı, güvenilir ve ölçeklenebilir web
-              çözümleri üretmek.
-            </p>
+            <h3>{{ 'ABOUT.MISSION.TITLE' | translate }}</h3>
+            <p>{{ 'ABOUT.MISSION.TEXT' | translate }}</p>
           </div>
         </div>
         <div class="col-lg-6">
@@ -32,11 +27,8 @@
             <div class="mv-icon vision">
               <i class="fas fa-binoculars"></i>
             </div>
-            <h3>Vizyonumuz</h3>
-            <p>
-              Ukrayna'da ve uluslararası arenada, web teknolojileri alanında
-              yenilikçiliğin ve kalitenin öncüsü olmak.
-            </p>
+            <h3>{{ 'ABOUT.VISION.TITLE' | translate }}</h3>
+            <p>{{ 'ABOUT.VISION.TEXT' | translate }}</p>
           </div>
         </div>
       </div>
@@ -46,8 +38,8 @@
   <section class="timeline-section section-padding bg-light">
     <div class="container-modern">
       <div class="section-header text-center">
-        <h2 class="section-title">Yolculuğumuz</h2>
-        <p class="section-subtitle">Kuruluşumuzdan bugüne önemli anlar.</p>
+        <h2 class="section-title">{{ 'ABOUT.JOURNEY.TITLE' | translate }}</h2>
+        <p class="section-subtitle">{{ 'ABOUT.JOURNEY.SUBTITLE' | translate }}</p>
       </div>
       <div class="timeline">
         <div class="timeline-item" *ngFor="let milestone of milestones; let isOdd = odd">
@@ -64,10 +56,8 @@
   <section class="team-section section-padding">
     <div class="container-modern">
       <div class="section-header text-center">
-        <h2 class="section-title">Ekibimizle Tanışın</h2>
-        <p class="section-subtitle">
-          Başarımızın arkasındaki yetenekli ve tutkulu yüzler.
-        </p>
+        <h2 class="section-title">{{ 'ABOUT.TEAM.TITLE' | translate }}</h2>
+        <p class="section-subtitle">{{ 'ABOUT.TEAM.SUBTITLE' | translate }}</p>
       </div>
       <div class="row">
         <div class="col-lg-4 col-md-6 mb-4" *ngFor="let member of teamMembers">
@@ -78,9 +68,7 @@
             <h5 class="team-name">{{ member.name }}</h5>
             <p class="team-role">{{ member.role }}</p>
             <div class="team-skills">
-              <span class="skill-tag" *ngFor="let skill of member.skills">{{
-                  skill
-                }}</span>
+              <span class="skill-tag" *ngFor="let skill of member.skills">{{ skill }}</span>
             </div>
           </div>
         </div>
@@ -90,14 +78,11 @@
 
   <section class="cta-section-about section-padding">
     <div class="container-modern text-center">
-      <h2 class="cta-title">Harika Bir Fikriniz mi Var?</h2>
-      <p class="cta-description">
-        Ekibimiz, fikrinizi bir sonraki büyük projeye dönüştürmek için hazır.
-        Hadi tanışalım!
-      </p>
+      <h2 class="cta-title">{{ 'ABOUT.CTA.TITLE' | translate }}</h2>
+      <p class="cta-description">{{ 'ABOUT.CTA.DESCRIPTION' | translate }}</p>
       <a routerLink="/iletisim" class="btn-modern btn-primary btn-xl">
         <i class="fas fa-lightbulb me-2"></i>
-        Projenizi Anlatın
+        {{ 'ABOUT.CTA.BUTTON' | translate }}
       </a>
     </div>
   </section>

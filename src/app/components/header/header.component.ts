@@ -1,12 +1,14 @@
 // src/app/components/header/header.component.ts
+
 import { Component, HostListener, OnDestroy, OnInit } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, CommonModule],
+  imports: [RouterLink, RouterLinkActive, CommonModule, TranslateModule], // TranslateModule eklendi
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css'],
 })
@@ -14,22 +16,20 @@ export class HeaderComponent implements OnInit, OnDestroy {
   isScrolled = false;
   isMobileMenuOpen = false;
 
-  constructor() {}
+  // TranslateService'i constructor'a enjekte ediyoruz
+  constructor(public translate: TranslateService) {}
 
   ngOnInit(): void {
-    // Component yüklendiğinde mevcut scroll durumunu kontrol et
     this.onWindowScroll();
   }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    // Sayfanın 50 pikselden fazla kaydırılıp kaydırılmadığını kontrol eder
     this.isScrolled = window.pageYOffset > 50;
   }
 
   @HostListener('window:resize', [])
   onWindowResize() {
-    // Geniş ekranlarda mobil menüyü otomatik kapat
     if (window.innerWidth > 991 && this.isMobileMenuOpen) {
       this.closeMobileMenu();
     }
@@ -47,8 +47,15 @@ export class HeaderComponent implements OnInit, OnDestroy {
     }
   }
 
+  // Dili değiştiren ve mobil menüyü kapatan fonksiyon
+  switchLang(lang: string) {
+    this.translate.use(lang);
+    if (this.isMobileMenuOpen) {
+      this.closeMobileMenu();
+    }
+  }
+
   private updateBodyScroll() {
-    // Mobil menü açıkken body'nin kaymasını engelle
     if (this.isMobileMenuOpen) {
       document.body.style.overflow = 'hidden';
     } else {
@@ -57,7 +64,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    // Component yok edildiğinde body scroll'u normale döndür
+    // Component yok edildiğinde her ihtimale karşı body scroll'u normale döndür
     document.body.style.overflow = '';
   }
 }

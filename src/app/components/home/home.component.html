@@ -2,23 +2,18 @@
   <section class="hero-section">
     <div class="container text-center">
       <div class="hero-content">
-        <h1 class="hero-title animate-fade-in-up">
-          Yaratıcı Fikirleri
-          <span class="text-gradient">Dijital Gerçekliğe</span>
-          Dönüştürüyoruz
-        </h1>
+        <h1 class="hero-title animate-fade-in-up" [innerHTML]="'HOME.HERO.TITLE' | translate"></h1>
         <p class="hero-subtitle animate-fade-in-up animate-delay-1">
-          Qurdoka Innova Tech olarak, işletmenizin dijital potansiyelini ortaya
-          çıkaran, kullanıcı odaklı ve modern web çözümleri sunuyoruz.
+          {{ 'HOME.HERO.SUBTITLE' | translate }}
         </p>
         <div class="hero-buttons animate-fade-in-up animate-delay-2">
           <a routerLink="/projeler" class="btn-modern btn-primary btn-lg">
             <i class="fas fa-rocket me-2"></i>
-            Projelerimizi Keşfedin
+            {{ 'HOME.HERO.BUTTON_PROJECTS' | translate }}
           </a>
           <a routerLink="/hakkinda" class="btn-modern btn-outline btn-lg">
             <i class="fas fa-info-circle me-2"></i>
-            Daha Fazla Bilgi
+            {{ 'HOME.HERO.BUTTON_ABOUT' | translate }}
           </a>
         </div>
       </div>
@@ -33,10 +28,9 @@
   <section class="services-section section-padding">
     <div class="container">
       <div class="section-header text-center">
-        <h2 class="section-title">Neler Yapıyoruz?</h2>
+        <h2 class="section-title">{{ 'HOME.SERVICES.TITLE' | translate }}</h2>
         <p class="section-subtitle">
-          İşletmenizin ihtiyaçlarına yönelik, uçtan uca dijital hizmetler
-          sunuyoruz.
+          {{ 'HOME.SERVICES.SUBTITLE' | translate }}
         </p>
       </div>
 
@@ -59,11 +53,25 @@
           <div class="why-us-image">
             <div class="image-placeholder-modern">
               <i class="fas fa-users"></i>
-              <span>Uzman Ekip</span>
+              <span>{{ 'HOME.WHY_US.IMAGE_TEXT' | translate }}</span>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="why-us-content">
-            <h2 class="section-title">Neden Bizimle Çalışmalısınız?</h2>
+            <h2 class="section-title">{{ 'HOME.WHY_US.TITLE' | translate }}</h2>
             <ul class="features-list-modern">
+              <li *ngFor="let feature of features">
+                <div class="feature-icon-modern" [innerHTML]="feature.icon | safeHtml"></div>
+                <div class="feature-text">
+                  <h5>{{ feature.title }}</h5>
+                  <p>{{ feature.description }}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

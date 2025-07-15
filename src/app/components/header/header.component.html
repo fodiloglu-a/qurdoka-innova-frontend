@@ -1,19 +1,20 @@
-
 <header class="main-header" [class.scrolled]="isScrolled" [class.menu-open]="isMobileMenuOpen">
-  <br>
-  <br>
-  <br>
-  <div class="container-modern header-container">
+  <div class="header-container container-modern">
     <a class="logo" routerLink="/" (click)="closeMobileMenu()">
       <span class="logo-text">Qurdoka</span>
-      <span class="logo-subtitle">InnovaTech</span>
+      <span class="logo-subtitle">Innova</span>
     </a>
 
     <nav class="main-nav">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Ana Sayfa</a>
-      <a routerLink="/hakkinda" routerLinkActive="active">Hakkında</a>
-      <a routerLink="/projeler" routerLinkActive="active">Projeler</a>
-      <a routerLink="/iletisim" class="btn-contact-nav">İletişime Geç</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{ 'HEADER.HOME' | translate }}</a>
+      <a routerLink="/hakkinda" routerLinkActive="active">{{ 'HEADER.ABOUT' | translate }}</a>
+      <a routerLink="/projeler" routerLinkActive="active">{{ 'HEADER.PROJECTS' | translate }}</a>
+      <a routerLink="/iletisim" class="btn-contact-nav">{{ 'HEADER.CONTACT' | translate }}</a>
+      <div class="language-switcher">
+        <button class="lang-btn" (click)="switchLang('tr')" [class.active]="translate.currentLang === 'tr'">TR</button>
+        <span class="lang-separator">|</span>
+        <button class="lang-btn" (click)="switchLang('uk')" [class.active]="translate.currentLang === 'uk'">UK</button>
+      </div>
     </nav>
 
     <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen"
@@ -26,10 +27,14 @@
 
   <div class="mobile-menu-overlay" [class.active]="isMobileMenuOpen">
     <nav class="mobile-nav">
-      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()">Ana Sayfa</a>
-      <a routerLink="/hakkinda" routerLinkActive="active" (click)="closeMobileMenu()">Hakkında</a>
-      <a routerLink="/projeler" routerLinkActive="active" (click)="closeMobileMenu()">Projeler</a>
-      <a routerLink="/iletisim" class="btn-contact-nav-mobile" (click)="closeMobileMenu()">İletişime Geç</a>
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="switchLang(translate.currentLang)">{{ 'HEADER.HOME' | translate }}</a>
+      <a routerLink="/hakkinda" routerLinkActive="active" (click)="switchLang(translate.currentLang)">{{ 'HEADER.ABOUT' | translate }}</a>
+      <a routerLink="/projeler" routerLinkActive="active" (click)="switchLang(translate.currentLang)">{{ 'HEADER.PROJECTS' | translate }}</a>
+      <a routerLink="/iletisim" (click)="switchLang(translate.currentLang)" class="btn-contact-nav-mobile">{{ 'HEADER.CONTACT' | translate }}</a>
+      <div class="language-switcher-mobile">
+        <button class="lang-btn" (click)="switchLang('tr')" [class.active]="translate.currentLang === 'tr'">Türkçe</button>
+        <button class="lang-btn" (click)="switchLang('uk')" [class.active]="translate.currentLang === 'uk'">Українська</button>
+      </div>
     </nav>
   </div>
 </header>

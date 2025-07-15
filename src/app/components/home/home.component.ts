@@ -3,6 +3,7 @@ import { Component, OnInit, Pipe, PipeTransform, SecurityContext } from '@angula
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import {TranslatePipe} from '@ngx-translate/core';
 
 // İkonları güvenli bir şekilde render etmek için bir Pipe
 @Pipe({
@@ -36,7 +37,7 @@ interface Stat {
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink, SafeHtmlPipe],
+  imports: [CommonModule, RouterLink, SafeHtmlPipe, TranslatePipe],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
 })

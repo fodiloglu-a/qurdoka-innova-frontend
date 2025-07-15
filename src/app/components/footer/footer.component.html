@@ -5,12 +5,10 @@
         <div class="col-lg-4 mb-4 mb-lg-0">
           <div class="footer-logo">
             <span class="logo-text">Qurdoka</span>
-            <span class="logo-subtitle">InnovaTech</span>
+            <span class="logo-subtitle">Innova</span>
           </div>
           <p class="footer-about">
-            Yenilikçi teknolojilerle işletmenizin dijital dünyadaki
-            partneriyiz. Kiev merkezli ekibimizle global standartlarda web
-            çözümleri sunuyoruz.
+            {{ 'FOOTER.ABOUT_TEXT' | translate }}
           </p>
           <div class="footer-social-links">
             <a href="#" (click)="openSocialLink('linkedin'); $event.preventDefault()" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
@@ -20,30 +18,30 @@
         </div>
 
         <div class="col-lg-2 col-md-4 col-6">
-          <h5 class="footer-title">Şirket</h5>
+          <h5 class="footer-title">{{ 'FOOTER.COMPANY.TITLE' | translate }}</h5>
           <ul class="footer-links">
-            <li><a routerLink="/hakkinda">Hakkımızda</a></li>
-            <li><a routerLink="/projeler">Projelerimiz</a></li>
-            <li><a routerLink="/iletisim">İletişim</a></li>
+            <li><a routerLink="/hakkinda">{{ 'FOOTER.COMPANY.ABOUT' | translate }}</a></li>
+            <li><a routerLink="/projeler">{{ 'FOOTER.COMPANY.PROJECTS' | translate }}</a></li>
+            <li><a routerLink="/iletisim">{{ 'FOOTER.COMPANY.CONTACT' | translate }}</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-4 col-6">
-          <h5 class="footer-title">Hizmetler</h5>
+          <h5 class="footer-title">{{ 'FOOTER.SERVICES.TITLE' | translate }}</h5>
           <ul class="footer-links">
-            <li><a routerLink="/#services">Web Geliştirme</a></li>
-            <li><a routerLink="/#services">UI/UX Tasarım</a></li>
-            <li><a routerLink="/#services">E-Ticaret</a></li>
+            <li><a routerLink="">{{ 'FOOTER.SERVICES.WEB_DEV' | translate }}</a></li>
+            <li><a routerLink="">{{ 'FOOTER.SERVICES.UI_UX' | translate }}</a></li>
+            <li><a routerLink="">{{ 'FOOTER.SERVICES.ECOMMERCE' | translate }}</a></li>
           </ul>
         </div>
 
         <div class="col-lg-4 col-md-4">
-          <h5 class="footer-title">Bültenimize Abone Olun</h5>
+          <h5 class="footer-title">{{ 'FOOTER.NEWSLETTER.TITLE' | translate }}</h5>
           <p class="newsletter-description">
-            En son haberleri ve makaleleri posta kutunuza alın.
+            {{ 'FOOTER.NEWSLETTER.SUBTITLE' | translate }}
           </p>
           <form class="newsletter-form" (submit)="subscribeNewsletter($event)">
-            <input type="email" placeholder="E-posta adresiniz" [(ngModel)]="newsletterEmail" name="email"
+            <input type="email" [placeholder]="'FOOTER.NEWSLETTER.PLACEHOLDER' | translate" [(ngModel)]="newsletterEmail" name="email"
                    class="newsletter-input" />
             <button type="submit" class="newsletter-btn" [disabled]="isSubscribing">
               <i class="fas fa-paper-plane"></i>
@@ -55,12 +53,12 @@
 
     <div class="footer-bottom">
       <p class="copyright">
-        &copy; {{ currentYear }} Qurdoka InnovaTech. Tüm Hakları Saklıdır.
+        {{ 'FOOTER.COPYRIGHT' | translate: { year: currentYear } }}
       </p>
     </div>
   </div>
 
   <div class="notification-popup" *ngIf="notification.active" [ngClass]="notification.type">
-    {{ notification.message }}
+    {{ notification.message | translate }}
   </div>
 </footer>

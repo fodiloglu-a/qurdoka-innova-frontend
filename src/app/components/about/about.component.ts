@@ -2,6 +2,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import {TranslatePipe} from '@ngx-translate/core';
 
 // Arayüzler (Mevcut haliyle iyi, değiştirilmedi)
 // ... Milestone, Value, TeamMember, Statistic, etc.
@@ -9,7 +10,7 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslatePipe],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })

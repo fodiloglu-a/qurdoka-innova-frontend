@@ -2,13 +2,9 @@
   <section class="projects-hero">
     <div class="container-modern">
       <div class="hero-content">
-        <h1 class="hero-title animate-fade-in-up">
-          Dijitalde <span class="text-primary">İz Bırakan</span> İşler
-        </h1>
+        <h1 class="hero-title animate-fade-in-up" [innerHTML]="'PROJECTS.HERO.TITLE' | translate"></h1>
         <p class="hero-description animate-fade-in-up animate-delay-1">
-          Yenilikçi fikirleri, kodun gücüyle birleştirerek oluşturduğumuz
-          projeleri keşfedin. Her biri, kendi alanında fark yaratan çözümler
-          sunuyor.
+          {{ 'PROJECTS.HERO.SUBTITLE' | translate }}
         </p>
       </div>
     </div>
@@ -47,7 +43,7 @@
       <div class="load-more-section" *ngIf="hasMoreProjects()">
         <button class="btn-modern btn-secondary btn-lg" (click)="loadMoreProjects()">
           <i class="fas fa-sync-alt me-2"></i>
-          Daha Fazla Göster
+          {{ 'PROJECTS.BUTTON_LOAD_MORE' | translate }}
         </button>
       </div>
     </div>
@@ -64,14 +60,14 @@
           <i [class]="selectedProject.iconClass"></i>
         </div>
         <div class="project-meta">
-          <span class="meta-tag">{{selectedProject.year}}</span>
-          <span class="meta-tag">{{selectedProject.duration}}</span>
-          <span class="meta-tag">{{selectedProject.teamSize}} Kişilik Ekip</span>
+          <span class="meta-tag">{{ selectedProject.year }}</span>
+          <span class="meta-tag">{{ selectedProject.duration }}</span>
+          <span class="meta-tag">{{ 'PROJECTS.MODAL.TEAM_SIZE' | translate: { size: selectedProject.teamSize } }}</span>
         </div>
-        <h4>Proje Hakkında</h4>
+        <h4>{{ 'PROJECTS.MODAL.ABOUT_TITLE' | translate }}</h4>
         <p>{{ selectedProject.fullDescription }}</p>
 
-        <h4>Anahtar Özellikler</h4>
+        <h4>{{ 'PROJECTS.MODAL.FEATURES_TITLE' | translate }}</h4>
         <ul class="features-list">
           <li *ngFor="let feature of selectedProject.features">
             <i class="fas fa-check-circle text-success"></i>
@@ -79,19 +75,17 @@
           </li>
         </ul>
 
-        <h4>Kullanılan Teknolojiler</h4>
+        <h4>{{ 'PROJECTS.MODAL.TECH_TITLE' | translate }}</h4>
         <div class="tech-tags">
           <span class="tech-tag" *ngFor="let tech of selectedProject.technologies">{{ tech }}</span>
         </div>
       </div>
-
       <div class="modal-footer" *ngIf="selectedProject.demoUrl">
         <a [href]="selectedProject.demoUrl" target="_blank" class="btn-modern btn-primary">
           <i class="fas fa-external-link-alt me-2"></i>
-          Canlı Demo
+          {{ 'PROJECTS.MODAL.BUTTON_LIVE_DEMO' | translate }}
         </a>
       </div>
-
     </div>
   </div>
 </div>

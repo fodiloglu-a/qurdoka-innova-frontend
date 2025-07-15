@@ -7,11 +7,12 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import {TranslatePipe} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-contact',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
@@ -19,6 +20,7 @@ export class ContactComponent implements OnInit {
   contactForm: FormGroup;
   isSubmitting = false;
   showSuccessMessage = false;
+  email='info@qurdokainnova.com';
 
   constructor(private fb: FormBuilder) {
     this.contactForm = this.fb.group({
