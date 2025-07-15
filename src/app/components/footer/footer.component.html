@@ -1,103 +1,66 @@
-<!-- src/app/components/footer/footer.component.html -->
-<footer class="footer">
-  <div class="footer-main">
-    <div class="container">
+<footer class="main-footer">
+  <div class="container-modern">
+    <div class="footer-top">
       <div class="row">
-        <!-- Şirket Bilgileri -->
-        <div class="col-lg-4 col-md-6 mb-4">
-          <div class="footer-section">
-            <div class="footer-logo">
-              <span class="logo-text">QURDOKA</span>
-              <span class="logo-subtitle">INNOVA</span>
-            </div>
-            <p class="footer-description">
-              Ukrayna merkezli profesyonel web sitesi geliştirme şirketi.
-              Modern teknolojiler ile güvenilir web çözümleri sunuyoruz.
-            </p>
-            <div class="social-links">
-              <a href="#" class="social-link" aria-label="LinkedIn" (click)="openSocialLink('linkedin')">
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a href="#" class="social-link" aria-label="GitHub" (click)="openSocialLink('github')">
-                <i class="fab fa-github"></i>
-              </a>
-              <a href="#" class="social-link" aria-label="Twitter" (click)="openSocialLink('twitter')">
-                <i class="fab fa-twitter"></i>
-              </a>
-            </div>
+        <div class="col-lg-4 mb-4 mb-lg-0">
+          <div class="footer-logo">
+            <span class="logo-text">Qurdoka</span>
+            <span class="logo-subtitle">InnovaTech</span>
+          </div>
+          <p class="footer-about">
+            Yenilikçi teknolojilerle işletmenizin dijital dünyadaki
+            partneriyiz. Kiev merkezli ekibimizle global standartlarda web
+            çözümleri sunuyoruz.
+          </p>
+          <div class="footer-social-links">
+            <a href="#" (click)="openSocialLink('linkedin'); $event.preventDefault()" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" (click)="openSocialLink('github'); $event.preventDefault()" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="#" (click)="openSocialLink('twitter'); $event.preventDefault()" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
           </div>
         </div>
 
-        <!-- Hızlı Linkler -->
-        <div class="col-lg-2 col-md-6 mb-4">
-          <div class="footer-section">
-            <h5 class="footer-title">Hızlı Linkler</h5>
-            <ul class="footer-links">
-              <li><a routerLink="/">Ana Sayfa</a></li>
-              <li><a routerLink="/projeler">Projeler</a></li>
-              <li><a routerLink="/hakkinda">Hakkında</a></li>
-              <li><a routerLink="/iletisim">İletişim</a></li>
-            </ul>
-          </div>
+        <div class="col-lg-2 col-md-4 col-6">
+          <h5 class="footer-title">Şirket</h5>
+          <ul class="footer-links">
+            <li><a routerLink="/hakkinda">Hakkımızda</a></li>
+            <li><a routerLink="/projeler">Projelerimiz</a></li>
+            <li><a routerLink="/iletisim">İletişim</a></li>
+          </ul>
         </div>
 
-        <!-- Hizmetler -->
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="footer-section">
-            <h5 class="footer-title">Hizmetlerimiz</h5>
-            <ul class="footer-links">
-              <li><a href="#" routerLink="/">Web Tasarım</a></li>
-              <li><a href="#" routerLink="/">Web Geliştirme</a></li>
-              <li><a href="#" routerLink="/">E-Ticaret</a></li>
-              <li><a href="#" routerLink="/">Mobil Uygulama</a></li>
-              <li><a href="#" routerLink="/">SEO Optimizasyon</a></li>
-            </ul>
-          </div>
+        <div class="col-lg-2 col-md-4 col-6">
+          <h5 class="footer-title">Hizmetler</h5>
+          <ul class="footer-links">
+            <li><a routerLink="/#services">Web Geliştirme</a></li>
+            <li><a routerLink="/#services">UI/UX Tasarım</a></li>
+            <li><a routerLink="/#services">E-Ticaret</a></li>
+          </ul>
         </div>
 
-        <!-- İletişim Bilgileri -->
-        <div class="col-lg-3 col-md-6 mb-4">
-          <div class="footer-section">
-            <h5 class="footer-title">İletişim</h5>
-            <div class="contact-info">
-              <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="#" (click)="sendEmail()">infoqurdokainnova.com</a>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <a href="#" (click)="makeCall()">+380 123 456 789</a>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>Kyiv, Ukrayna</span>
-              </div>
-            </div>
-          </div>
+        <div class="col-lg-4 col-md-4">
+          <h5 class="footer-title">Bültenimize Abone Olun</h5>
+          <p class="newsletter-description">
+            En son haberleri ve makaleleri posta kutunuza alın.
+          </p>
+          <form class="newsletter-form" (submit)="subscribeNewsletter($event)">
+            <input type="email" placeholder="E-posta adresiniz" [(ngModel)]="newsletterEmail" name="email"
+                   class="newsletter-input" />
+            <button type="submit" class="newsletter-btn" [disabled]="isSubscribing">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
         </div>
       </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        &copy; {{ currentYear }} Qurdoka InnovaTech. Tüm Hakları Saklıdır.
+      </p>
     </div>
   </div>
 
-  <!-- Alt Footer -->
-  <div class="footer-bottom">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-md-6">
-          <p class="copyright">
-            &copy; {{ currentYear }} Qurdoka Innova. Tüm hakları saklıdır.
-          </p>
-        </div>
-        <div class="col-md-6">
-          <div class="footer-bottom-links">
-            <a href="#" routerLink="/">Gizlilik Politikası</a>
-            <a href="#" routerLink="/">Kullanım Şartları</a>
-            <a href="#" class="scroll-top" (click)="scrollToTop()">
-              <i class="fas fa-arrow-up"></i> Yukarı Çık
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div class="notification-popup" *ngIf="notification.active" [ngClass]="notification.type">
+    {{ notification.message }}
   </div>
 </footer>

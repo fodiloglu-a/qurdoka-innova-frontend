@@ -1,27 +1,31 @@
+// src/app/components/projects/projects.component.ts
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
+// Arayüzler
 interface Project {
   id: number;
   title: string;
   description: string;
-  category: string;
+  fullDescription: string;
+  features: string[];
+  category: string; // 'web-design', 'ecommerce' etc.
   categoryName: string;
   categoryClass: string;
   imageClass: string;
-  iconPath: string;
+  iconClass: string;
   technologies: string[];
   year: string;
   duration: string;
   teamSize: number;
-  fullDescription: string;
-  features: string[];
   demoUrl?: string;
 }
 
-interface ProjectStat {
-  number: number;
-  label: string;
+interface FilterCategory {
+  id: string;
+  name: string;
+  icon: string;
 }
 
 @Component({
@@ -29,136 +33,247 @@ interface ProjectStat {
   standalone: true,
   imports: [CommonModule],
   templateUrl: './projects.component.html',
-  styleUrl: './projects.component.css'
+  styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-  // Hero kısmındaki istatistikler
-  projectStats: ProjectStat[] = [
-    { number: 50, label: 'Tamamlanan Proje' },
-    { number: 30, label: 'Mutlu Müşteri' },
-    { number: 5, label: 'Yıllık Tecrübe' }
+  // Kategori Filtreleri
+  filterCategories: FilterCategory[] = [
+    { id: 'all', name: 'Tümü', icon: 'fas fa-th-large' },
+    { id: 'web-development', name: 'Web Geliştirme', icon: 'fas fa-code' },
+    { id: 'web-design', name: 'Web Tasarım', icon: 'fas fa-palette' },
+    { id: 'ecommerce', name: 'E-Ticaret', icon: 'fas fa-shopping-cart' },
+    { id: 'mobile-app', name: 'Mobil Uygulama', icon: 'fas fa-mobile-alt' },
   ];
 
-  // Projelerin listesi
-  projects: Project[] = [
+  // Projelerin Tam Listesi
+  private allProjects: Project[] = [
     {
       id: 1,
-      title: 'E-Ticaret Web Sitesi',
-      description: 'Modern tasarımlı bir e-ticaret çözümü.',
+      title: 'Kurumsal Finans Platformu',
+      description:
+        'Finansal danışmanlık firması için modern ve güvenli web platformu.',
+      fullDescription:
+        'Bu proje, müşterilerin yatırım portföylerini yönetebilecekleri, piyasa analizlerine ulaşabilecekleri ve danışmanlarla doğrudan iletişim kurabilecekleri kapsamlı bir platformdur.',
+      features: [
+        'Gerçek zamanlı piyasa verileri',
+        'Güvenli kullanıcı kimlik doğrulama',
+        'Detaylı raporlama araçları',
+      ],
+      category: 'web-development',
+      categoryName: 'Web Geliştirme',
+      categoryClass: 'category-web-dev',
+      imageClass: 'image-web-development',
+      iconClass: 'fas fa-chart-line',
+      technologies: ['Angular', 'Node.js', 'PostgreSQL', 'WebSocket'],
+      year: '2023',
+      duration: '8 Ay',
+      teamSize: 6,
+      demoUrl: '#',
+    },
+    {
+      id: 2,
+      title: 'Lüks Moda E-Ticaret Sitesi',
+      description:
+        'Uluslararası bir moda markası için estetik ve hızlı bir alışveriş deneyimi.',
+      fullDescription:
+        'Kullanıcı deneyimini ön planda tutan bu e-ticaret sitesi, ürünlerin en iyi şekilde sergilenmesini sağlar. Sanal deneme ve stil danışmanı gibi yenilikçi özellikler içerir.',
+      features: [
+        '3D ürün görselleştirme',
+        'Yapay zeka tabanlı öneri motoru',
+        'Çoklu dil ve para birimi desteği',
+      ],
       category: 'ecommerce',
       categoryName: 'E-Ticaret',
       categoryClass: 'category-ecommerce',
       imageClass: 'image-ecommerce',
-      iconPath: 'M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z',
-      technologies: ['Angular', 'Node.js', 'MongoDB'],
-      year: '2023',
-      duration: '6 Ay',
+      iconClass: 'fas fa-tshirt',
+      technologies: ['React', 'Next.js', 'Stripe', 'GraphQL'],
+      year: '2024',
+      duration: '7 Ay',
       teamSize: 5,
-      fullDescription:
-        'Bu proje, kullanıcı dostu bir tasarım ve güçlü bir arka uç sunarak müşterilerin çevrimiçi ürün satışı yapmasını sağlar.',
-      features: ['SEO optimizasyonu', 'Mobil uyumlu tasarım', 'Hızlı ödeme sistemi'],
-      demoUrl: 'https://demo-ecommerce.example.com'
+      demoUrl: '#',
     },
     {
-      id: 2,
-      title: 'Kurumsal Web Sitesi',
-      description: 'Profesyonel bir kurumsal web sitesi.',
+      id: 3,
+      title: 'Sağlık ve Fitness Mobil Uygulaması',
+      description:
+        'Kişiselleştirilmiş antrenman ve beslenme takibi sunan bir mobil uygulama.',
+      fullDescription:
+        'Kullanıcıların fitness hedeflerine ulaşmalarını kolaylaştıran bu uygulama, antrenman programları, kalori takibi ve ilerleme raporları gibi özellikler sunar. Giyilebilir cihazlarla entegre çalışır.',
+      features: [
+        'Video destekli egzersizler',
+        'Giyilebilir cihaz entegrasyonu (Apple Watch, etc.)',
+        'Sosyal ilerleme paylaşımı',
+      ],
+      category: 'mobile-app',
+      categoryName: 'Mobil Uygulama',
+      categoryClass: 'category-mobile-app',
+      imageClass: 'image-mobile-app',
+      iconClass: 'fas fa-heartbeat',
+      technologies: ['Flutter', 'Firebase', 'Google Fit API'],
+      year: '2023',
+      duration: '6 Ay',
+      teamSize: 4,
+    },
+    {
+      id: 4,
+      title: 'Sanat Galerisi Marka Kimliği ve Web Tasarımı',
+      description:
+        'Modern sanat galerisi için oluşturulan minimalist ve etkileyici web tasarımı.',
+      fullDescription:
+        'Bu proje, sanat eserlerini ön plana çıkaran, sade ve şık bir tasarıma sahiptir. Sanatçılar ve eserler hakkında detaylı bilgi sunarken, online sergi deneyimi de yaşatır.',
+      features: [
+        'Yüksek çözünürlüklü görsel galerileri',
+        'Online sergi turu',
+        'Mobil öncelikli sanatçı portfolyoları',
+      ],
       category: 'web-design',
       categoryName: 'Web Tasarım',
       categoryClass: 'category-web-design',
       imageClass: 'image-web-design',
-      iconPath: 'M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4 4 4 0 004-4V5z',
-      technologies: ['HTML', 'CSS', 'JavaScript'],
-      year: '2021',
+      iconClass: 'fas fa-paint-brush',
+      technologies: ['Figma', 'HTML5', 'CSS3', 'JavaScript'],
+      year: '2022',
+      duration: '3 Ay',
+      teamSize: 2,
+    },
+    {
+      id: 5,
+      title: 'Online Eğitim Platformu (LMS)',
+      description:
+        'Video dersler, sınavlar ve sertifikasyon sunan kapsamlı bir öğrenme yönetim sistemi.',
+      fullDescription:
+        'Öğrencilerin ve eğitmenlerin interaktif bir ortamda buluştuğu bu platform, canlı dersler, ödev takibi ve otomatik değerlendirme gibi özelliklerle zenginleştirilmiştir.',
+      features: [
+        'Canlı video yayını',
+        'Gelişmiş sınav modülü',
+        'Otomatik sertifika oluşturma',
+      ],
+      category: 'web-development',
+      categoryName: 'Web Geliştirme',
+      categoryClass: 'category-web-dev',
+      imageClass: 'image-web-development',
+      iconClass: 'fas fa-graduation-cap',
+      technologies: ['Vue.js', 'Laravel', 'MySQL', 'WebRTC'],
+      year: '2024',
+      duration: '9 Ay',
+      teamSize: 7,
+      demoUrl: '#',
+    },
+    {
+      id: 6,
+      title: 'Gurme Gıda Pazaryeri',
+      description:
+        'Yerel üreticileri ve gurme lezzet tutkunlarını bir araya getiren online pazar yeri.',
+      fullDescription:
+        'Bu e-ticaret platformu, küçük üreticilerin ürünlerini sergileyip satabileceği, kullanıcıların ise coğrafi işaretli ve özel ürünlere ulaşabileceği bir yapı sunar.',
+      features: [
+        'Çoklu satıcı paneli',
+        'Coğrafi konum tabanlı arama',
+        'Abonelik tabanlı satış modeli',
+      ],
+      category: 'ecommerce',
+      categoryName: 'E-Ticaret',
+      categoryClass: 'category-ecommerce',
+      imageClass: 'image-ecommerce',
+      iconClass: 'fas fa-cheese',
+      technologies: ['Magento', 'PHP', 'Elasticsearch'],
+      year: '2023',
+      duration: '10 Ay',
+      teamSize: 8,
+    },
+    {
+      id: 7,
+      title: 'Restoran Rezervasyon ve Sipariş Uygulaması',
+      description:
+        'Kullanıcıların restoranlardan masa rezerve etmelerini ve paket sipariş vermelerini sağlayan uygulama.',
+      fullDescription:
+        'Bu mobil uygulama, kullanıcıların favori restoranlarını keşfetmelerini, menüleri incelemelerini ve kolayca sipariş vermelerini sağlar. Sadakat programı ve anlık bildirimler gibi özellikler içerir.',
+      features: [
+        'Harita üzerinde restoran bulma',
+        'Anlık sipariş takibi',
+        'Puan ve sadakat sistemi',
+      ],
+      category: 'mobile-app',
+      categoryName: 'Mobil Uygulama',
+      categoryClass: 'category-mobile-app',
+      imageClass: 'image-mobile-app',
+      iconClass: 'fas fa-utensils',
+      technologies: ['React Native', 'Node.js', 'MongoDB Atlas'],
+      year: '2024',
+      duration: '5 Ay',
+      teamSize: 3,
+      demoUrl: '#',
+    },
+    {
+      id: 8,
+      title: 'Teknoloji Startupı Web Sitesi',
+      description:
+        'Yapay zeka odaklı bir startup için hazırlanan modern ve dinamik web arayüzü.',
+      fullDescription:
+        'Bu web tasarımı, şirketin vizyonunu ve teknolojisini yansıtan fütüristik ve interaktif öğelerle donatılmıştır. Scroll tabanlı animasyonlar ve mikro etkileşimler ile kullanıcıyı etkilemeyi hedefler.',
+      features: [
+        'Interaktif WebGL animasyonları',
+        'Dinamik içerik yükleme',
+        'Kapsamlı blog ve kaynak merkezi',
+      ],
+      category: 'web-design',
+      categoryName: 'Web Tasarım',
+      categoryClass: 'category-web-design',
+      imageClass: 'image-web-design',
+      iconClass: 'fas fa-robot',
+      technologies: ['Vue.js', 'Three.js', 'GSAP'],
+      year: '2023',
       duration: '4 Ay',
       teamSize: 3,
-      fullDescription:
-        'Kurumsal hizmetleri ve çözümleri tanıtmak için temiz bir tasarımla inşa edilmiş bir web sitesidir.',
-      features: ['Hızlı yükleme süresi', 'Kolay navigasyon', 'Çok dilli destek']
-    }
-    // Daha fazla proje eklenebilir...
+      demoUrl: '#',
+    },
   ];
 
   filteredProjects: Project[] = [];
   selectedFilter: string = 'all';
   selectedProject: Project | null = null;
-  hasMoreProjects: boolean = true; // Yükleme durumunu kontrol etmek için
+  private projectsToShow = 6; // Başlangıçta gösterilecek proje sayısı
 
   ngOnInit(): void {
-    // İlk başta tüm projeleri göster
-    this.filteredProjects = [...this.projects];
+    this.filterProjects('all');
   }
 
-  /**
-   * Projeleri kategoriye göre filtreler
-   * @param category Filtrelenecek kategori
-   */
   filterProjects(category: string): void {
     this.selectedFilter = category;
+    const projects =
+      category === 'all'
+        ? this.allProjects
+        : this.allProjects.filter((p) => p.category === category);
 
-    if (category === 'all') {
-      this.filteredProjects = [...this.projects];
-    } else {
-      this.filteredProjects = this.projects.filter(
-        (project) => project.category === category
-      );
-    }
+    this.filteredProjects = projects.slice(0, this.projectsToShow);
   }
 
-  /**
-   * Belirli bir kategoriye ait proje sayısını döndüren metot
-   * @param category Kategori adı
-   * @returns Proje sayısı
-   */
-  getProjectCountByCategory(category: string): number {
-    return this.projects.filter((project) => project.category === category).length;
+  hasMoreProjects(): boolean {
+    const totalMatching =
+      this.selectedFilter === 'all'
+        ? this.allProjects.length
+        : this.allProjects.filter((p) => p.category === this.selectedFilter)
+          .length;
+    return this.filteredProjects.length < totalMatching;
   }
 
-  /**
-   * Daha fazla proje yükler
-   */
   loadMoreProjects(): void {
-    console.log('Daha fazla proje yükleniyor...');
-    // Örnek olarak burada daha fazla proje dinaamik eklenebilir
-    this.hasMoreProjects = false; // Şu an için başka proje olmadığı varsayılıyor.
+    this.projectsToShow += 6; // Her seferinde 6 proje daha yükle
+    this.filterProjects(this.selectedFilter);
   }
 
-  /**
-   * Modal açmak için kullanılan metot
-   * @param project Seçili proje
-   */
   openProjectModal(project: Project): void {
     this.selectedProject = project;
+    document.body.style.overflow = 'hidden'; // Arka planın kaymasını engelle
   }
 
-  /**
-   * Modalı kapatır
-   */
   closeProjectModal(): void {
     this.selectedProject = null;
+    document.body.style.overflow = 'auto';
   }
 
-  /**
-   * Demo sitesini açmak için kullanılan metot
-   * @param project Proje detayları
-   */
-  openDemo(project: Project): void {
-    if (project.demoUrl) {
-      window.open(project.demoUrl, '_blank');
-    }
-  }
-
-  /**
-   * Proje kartlarının performansını iyileştirme için trackBy fonksiyonu
-   * @param index Proje dizisindeki indeks
-   * @param project Proje objesi
-   * @returns Proje ID'si
-   */
   trackByProject(index: number, project: Project): number {
     return project.id;
-  }
-
-  viewProject(project: Project) {
-
   }
 }

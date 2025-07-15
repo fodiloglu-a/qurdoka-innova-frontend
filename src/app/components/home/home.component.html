@@ -1,59 +1,49 @@
-<!-- src/app/components/home/home.component.html -->
 <div class="home-container">
-  <!-- Hero Section -->
   <section class="hero-section">
-    <div class="container">
-      <div class="row align-items-center">
-        <div class="col-lg-6">
-          <div class="hero-content">
-            <h1 class="hero-title">
-              Profesyonel
-              <span class="text-primary-custom">Web Çözümleri</span>
-            </h1>
-            <p class="hero-description">
-              Ukrayna merkezli Qurdoka Innova olarak, modern teknolojiler kullanarak
-              işletmenizin dijital varlığını güçlendiren web siteleri geliştiriyoruz.
-            </p>
-            <div class="hero-buttons">
-              <a routerLink="/projeler" class="btn btn-professional">
-                <i class="fas fa-folder-open me-2"></i>
-                Projelerimizi İnceleyin
-              </a>
-              <a routerLink="/iletisim" class="btn btn-professional-outline">
-                <i class="fas fa-envelope me-2"></i>
-                İletişime Geçin
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-6">
-          <div class="hero-image">
-            <div class="image-placeholder">
-              <i class="fas fa-laptop-code"></i>
-              <span>Web Development</span>
-            </div>
-          </div>
+    <div class="container text-center">
+      <div class="hero-content">
+        <h1 class="hero-title animate-fade-in-up">
+          Yaratıcı Fikirleri
+          <span class="text-gradient">Dijital Gerçekliğe</span>
+          Dönüştürüyoruz
+        </h1>
+        <p class="hero-subtitle animate-fade-in-up animate-delay-1">
+          Qurdoka Innova Tech olarak, işletmenizin dijital potansiyelini ortaya
+          çıkaran, kullanıcı odaklı ve modern web çözümleri sunuyoruz.
+        </p>
+        <div class="hero-buttons animate-fade-in-up animate-delay-2">
+          <a routerLink="/projeler" class="btn-modern btn-primary btn-lg">
+            <i class="fas fa-rocket me-2"></i>
+            Projelerimizi Keşfedin
+          </a>
+          <a routerLink="/hakkinda" class="btn-modern btn-outline btn-lg">
+            <i class="fas fa-info-circle me-2"></i>
+            Daha Fazla Bilgi
+          </a>
         </div>
       </div>
     </div>
+    <div class="hero-background-shapes">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+    </div>
   </section>
 
-  <!-- Hizmetler Section -->
-  <section class="services-section section-padding bg-light-custom">
+  <section class="services-section section-padding">
     <div class="container">
-      <div class="text-center mb-5">
-        <h2 class="section-title">Hizmetlerimiz</h2>
+      <div class="section-header text-center">
+        <h2 class="section-title">Neler Yapıyoruz?</h2>
         <p class="section-subtitle">
-          Dijital dünyada başarılı olmanız için ihtiyacınız olan tüm hizmetler
+          İşletmenizin ihtiyaçlarına yönelik, uçtan uca dijital hizmetler
+          sunuyoruz.
         </p>
       </div>
 
       <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let service of services">
-          <div class="service-card card-professional">
-            <div class="service-icon">
-              <i [class]="service.icon"></i>
-            </div>
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let service of services; let i = index" [attr.data-index]="i">
+          <div class="service-card">
+            <div class="service-icon" [innerHTML]="service.icon | safeHtml"></div>
             <h4 class="service-title">{{ service.title }}</h4>
             <p class="service-description">{{ service.description }}</p>
           </div>
@@ -62,60 +52,18 @@
     </div>
   </section>
 
-  <!-- Neden Biz Section -->
-  <section class="why-us-section section-padding">
+  <section class="why-us-section section-padding bg-light">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6">
-          <div class="why-us-content">
-            <h2 class="section-title">Neden Qurdoka Innova?</h2>
-            <p class="section-subtitle">
-              Web geliştirme alanında yılların deneyimi ve modern teknolojilere hakimiyetimizle
-              projelerinizi hayata geçiriyoruz.
-            </p>
-
-            <div class="features-list">
-              <div class="feature-item" *ngFor="let feature of features">
-                <div class="feature-icon">
-                  <i [class]="feature.icon"></i>
-                </div>
-                <div class="feature-content">
-                  <h5>{{ feature.title }}</h5>
-                  <p>{{ feature.description }}</p>
-                </div>
-              </div>
+          <div class="why-us-image">
+            <div class="image-placeholder-modern">
+              <i class="fas fa-users"></i>
+              <span>Uzman Ekip</span>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="stats-container">
-            <div class="stat-item" *ngFor="let stat of stats">
-              <div class="stat-number">{{ stat.number }}</div>
-              <div class="stat-label">{{ stat.label }}</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 mx-auto text-center">
-          <h2 class="cta-title">Projenizi Hayata Geçirmeye Hazır mısınız?</h2>
-          <p class="cta-description">
-            Web sitenizi profesyonel ellerde geliştirin. Size özel çözümler için iletişime geçin.
-          </p>
-          <div class="cta-buttons">
-            <a routerLink="/iletisim" class="btn btn-professional btn-lg">
-              <i class="fas fa-rocket me-2"></i>
-              Hemen Başlayalım
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-</div>
+          <div class="why-us-content">
+            <h2 class="section-title">Neden Bizimle Çalışmalısınız?</h2>
+            <ul class="features-list-modern">

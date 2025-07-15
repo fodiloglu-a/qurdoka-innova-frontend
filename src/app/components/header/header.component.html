@@ -1,62 +1,35 @@
-<!-- src/app/components/header/header.component.html -->
-<header class="header" [class.scrolled]="isScrolled">
-  <nav class="navbar navbar-expand-lg">
-    <div class="container">
-      <!-- Logo -->
-      <a class="navbar-brand" routerLink="/">
-        <div class="logo-container">
-          <span class="logo-text">QURDOKA</span>
-          <span class="logo-subtitle">INNOVA</span>
-        </div>
-      </a>
 
-      <!-- Mobile Toggle -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        [attr.aria-expanded]="isMobileMenuOpen"
-        (click)="toggleMobileMenu()">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+<header class="main-header" [class.scrolled]="isScrolled" [class.menu-open]="isMobileMenuOpen">
+  <br>
+  <br>
+  <br>
+  <div class="container-modern header-container">
+    <a class="logo" routerLink="/" (click)="closeMobileMenu()">
+      <span class="logo-text">Qurdoka</span>
+      <span class="logo-subtitle">InnovaTech</span>
+    </a>
 
-      <!-- Navigation Menu -->
-      <div class="navbar-collapse" [class.show]="isMobileMenuOpen">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link"
-               routerLink="/"
-               routerLinkActive="active"
-               [routerLinkActiveOptions]="{exact: true}"
-               (click)="closeMobileMenu()">
-              Ana Sayfa
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"
-               routerLink="/projeler"
-               routerLinkActive="active"
-               (click)="closeMobileMenu()">
-              Projeler
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link"
-               routerLink="/hakkinda"
-               routerLinkActive="active"
-               (click)="closeMobileMenu()">
-              Hakkında
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link btn-contact"
-               routerLink="/iletisim"
-               routerLinkActive="active"
-               (click)="closeMobileMenu()">
-              İletişim
-            </a>
-          </li>
-        </ul>
+    <nav class="main-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Ana Sayfa</a>
+      <a routerLink="/hakkinda" routerLinkActive="active">Hakkında</a>
+      <a routerLink="/projeler" routerLinkActive="active">Projeler</a>
+      <a routerLink="/iletisim" class="btn-contact-nav">İletişime Geç</a>
+    </nav>
+
+    <button class="mobile-menu-toggle" (click)="toggleMobileMenu()" [attr.aria-expanded]="isMobileMenuOpen"
+            aria-label="Toggle navigation">
+      <div class="hamburger-box">
+        <div class="hamburger-inner"></div>
       </div>
-    </div>
-  </nav>
+    </button>
+  </div>
+
+  <div class="mobile-menu-overlay" [class.active]="isMobileMenuOpen">
+    <nav class="mobile-nav">
+      <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMobileMenu()">Ana Sayfa</a>
+      <a routerLink="/hakkinda" routerLinkActive="active" (click)="closeMobileMenu()">Hakkında</a>
+      <a routerLink="/projeler" routerLinkActive="active" (click)="closeMobileMenu()">Projeler</a>
+      <a routerLink="/iletisim" class="btn-contact-nav-mobile" (click)="closeMobileMenu()">İletişime Geç</a>
+    </nav>
+  </div>
 </header>

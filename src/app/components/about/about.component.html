@@ -1,53 +1,86 @@
-<!-- src/app/components/about/about.component.html -->
 <div class="about-container">
-  <!-- Hero Section -->
   <section class="about-hero">
     <div class="container-modern">
-      <div class="hero-content animate-fade-up">
-        <h1 class="hero-title">
-          <span class="text-primary">Qurdoka Innova</span> Hakkında
-        </h1>
-        <p class="hero-subtitle">
-          Ukrayna merkezli teknoloji şirketi olarak, modern web çözümleri ve
-          yaratıcı dijital deneyimler sunmak için tutkuyla çalışıyoruz.
+      <div class="hero-content text-center">
+        <h1 class="hero-title animate-fade-in-up">Biz Kimiz?</h1>
+        <p class="hero-subtitle animate-fade-in-up animate-delay-1">
+          Teknolojiye tutkuyla bağlı, yenilikçi ve sonuç odaklı bir ekibiz.
+          Qurdoka InnovaTech'nın hikayesini ve bizi biz yapan değerleri keşfedin.
         </p>
       </div>
     </div>
   </section>
 
-  <!-- Company Story -->
-  <section class="company-story section-padding">
+  <section class="mission-vision-section section-padding">
     <div class="container-modern">
-      <div class="grid grid-cols-2 story-grid">
-        <div class="story-content">
-          <h2 class="section-title">Hikayemiz</h2>
-          <div class="story-text">
+      <div class="row align-items-center">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <div class="mv-card">
+            <div class="mv-icon mission">
+              <i class="fas fa-bullseye"></i>
+            </div>
+            <h3>Misyonumuz</h3>
             <p>
-              2021 yılında Kyiv'de kurulan Qurdoka Innova, web geliştirme alanında
-              yenilikçi çözümler üretmek amacıyla hayata geçirildi. Küresel teknoloji
-              trendlerini takip ederek, müşterilerimize en güncel ve etkili dijital
-              çözümler sunuyoruz.
-            </p>
-            <p>
-              Kuruluşumuzdan bu yana, farklı sektörlerden 40+ müşteriye hizmet vererek,
-              50+ başarılı proje tamamladık. Her projede müşteri memnuniyetini ön planda
-              tutarak, uzun vadeli iş ortaklıkları kurmaya odaklanıyoruz.
-            </p>
-            <p>
-              Teknolojinin sürekli gelişim gösterdiği bu dönemde, ekip olarak kendimizi
-              sürekli geliştiriyor ve sektördeki en son trendleri takip ediyoruz.
+              Müşterilerimizin dijital dünyadaki potansiyelini en üst düzeye
+              çıkarmak için yaratıcı, güvenilir ve ölçeklenebilir web
+              çözümleri üretmek.
             </p>
           </div>
         </div>
-        <div class="story-visual">
-          <div class="timeline-container">
-            <div class="timeline-item" *ngFor="let milestone of milestones">
-              <div class="timeline-dot"></div>
-              <div class="timeline-content">
-                <div class="timeline-year">{{ milestone.year }}</div>
-                <div class="timeline-title">{{ milestone.title }}</div>
-                <div class="timeline-description">{{ milestone.description }}</div>
-              </div>
+        <div class="col-lg-6">
+          <div class="mv-card">
+            <div class="mv-icon vision">
+              <i class="fas fa-binoculars"></i>
+            </div>
+            <h3>Vizyonumuz</h3>
+            <p>
+              Ukrayna'da ve uluslararası arenada, web teknolojileri alanında
+              yenilikçiliğin ve kalitenin öncüsü olmak.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="timeline-section section-padding bg-light">
+    <div class="container-modern">
+      <div class="section-header text-center">
+        <h2 class="section-title">Yolculuğumuz</h2>
+        <p class="section-subtitle">Kuruluşumuzdan bugüne önemli anlar.</p>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item" *ngFor="let milestone of milestones; let isOdd = odd">
+          <div class="timeline-content" [class.right]="isOdd">
+            <div class="timeline-year">{{ milestone.year }}</div>
+            <h4 class="timeline-title">{{ milestone.title }}</h4>
+            <p>{{ milestone.description }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-section section-padding">
+    <div class="container-modern">
+      <div class="section-header text-center">
+        <h2 class="section-title">Ekibimizle Tanışın</h2>
+        <p class="section-subtitle">
+          Başarımızın arkasındaki yetenekli ve tutkulu yüzler.
+        </p>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let member of teamMembers">
+          <div class="team-card">
+            <div class="team-avatar">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <h5 class="team-name">{{ member.name }}</h5>
+            <p class="team-role">{{ member.role }}</p>
+            <div class="team-skills">
+              <span class="skill-tag" *ngFor="let skill of member.skills">{{
+                  skill
+                }}</span>
             </div>
           </div>
         </div>
@@ -55,193 +88,17 @@
     </div>
   </section>
 
-  <!-- Mission & Vision -->
-  <section class="mission-vision section-padding bg-light">
-    <div class="container-modern">
-      <div class="grid grid-cols-2 mv-grid">
-        <div class="mission-card card-modern">
-          <div class="card-icon mission-icon">
-            <svg class="icon icon-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
-          </div>
-          <h3 class="card-title">Misyonumuz</h3>
-          <p class="card-description">
-            İşletmelerin dijital dönüşüm sürecinde rehberlik ederek, modern web
-            teknolojileri ile güçlü, kullanıcı dostu ve sürdürülebilir dijital
-            çözümler sunmak. Müşterilerimizin başarısını kendi başarımız olarak
-            görerek, onların hedeflerine ulaşmasında etkin rol oynamak.
-          </p>
-        </div>
-        <div class="vision-card card-modern">
-          <div class="card-icon vision-icon">
-            <svg class="icon icon-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
-          </div>
-          <h3 class="card-title">Vizyonumuz</h3>
-          <p class="card-description">
-            Web geliştirme alanında Ukrayna'nın önde gelen teknoloji şirketlerinden
-            biri olmak. Yaratıcı çözümler, yenilikçi yaklaşımlar ve müşteri odaklı
-            hizmet anlayışımız ile dijital dünyada iz bırakmak ve sektörde
-            öncü konumunu sürdürmek.
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Values -->
-  <section class="values-section section-padding">
-    <div class="container-modern">
-      <div class="section-header text-center">
-        <h2 class="section-title">Değerlerimiz</h2>
-        <p class="section-subtitle">
-          Çalışma prensiplerimiz ve şirket kültürümüzü şekillendiren temel değerler
-        </p>
-      </div>
-
-      <div class="grid grid-cols-3 values-grid">
-        <div class="value-card" *ngFor="let value of values">
-          <div class="value-icon" [ngClass]="value.iconClass">
-            <svg class="icon icon-xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="value.iconPath"/>
-            </svg>
-          </div>
-          <h4 class="value-title">{{ value.title }}</h4>
-          <p class="value-description">{{ value.description }}</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Our Team -->
-  <section class="team-section section-padding bg-light">
-    <div class="container-modern">
-      <div class="section-header text-center">
-        <h2 class="section-title">Ekibimiz</h2>
-        <p class="section-subtitle">
-          Deneyimli ve tutkulu profesyonellerden oluşan ekibimiz
-        </p>
-      </div>
-
-      <div class="grid grid-cols-3 team-grid">
-        <div class="team-member" *ngFor="let member of teamMembers">
-          <div class="member-avatar">
-            <div class="avatar-placeholder">
-              <svg class="icon icon-2xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-              </svg>
-            </div>
-          </div>
-          <div class="member-info">
-            <h4 class="member-name">{{ member.name }}</h4>
-            <p class="member-role">{{ member.role }}</p>
-            <p class="member-description">{{ member.description }}</p>
-            <div class="member-skills">
-              <span class="skill-tag" *ngFor="let skill of member.skills">{{ skill }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Statistics -->
-  <section class="statistics-section section-padding">
-    <div class="container-modern">
-      <div class="stats-container">
-        <div class="stat-item animate-scale" *ngFor="let stat of statistics">
-          <div class="stat-icon" [ngClass]="stat.iconClass">
-            <svg class="icon icon-xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="stat.iconPath"/>
-            </svg>
-          </div>
-          <div class="stat-number" [attr.data-target]="stat.number">{{ stat.displayNumber }}</div>
-          <div class="stat-label">{{ stat.label }}</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Technologies -->
-  <section class="technologies-section section-padding bg-light">
-    <div class="container-modern">
-      <div class="section-header text-center">
-        <h2 class="section-title">Kullandığımız Teknolojiler</h2>
-        <p class="section-subtitle">
-          Modern ve güvenilir teknolojiler ile projelerinizi hayata geçiriyoruz
-        </p>
-      </div>
-
-      <div class="tech-categories">
-        <div class="tech-category" *ngFor="let category of techCategories">
-          <h4 class="category-title">{{ category.name }}</h4>
-          <div class="tech-items">
-            <div class="tech-item" *ngFor="let tech of category.technologies">
-              <div class="tech-icon">
-                <svg class="icon icon-lg" fill="currentColor" viewBox="0 0 24 24">
-                  <path [attr.d]="tech.iconPath"/>
-                </svg>
-              </div>
-              <span class="tech-name">{{ tech.name }}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section class="why-choose-section section-padding">
-    <div class="container-modern">
-      <div class="section-header text-center">
-        <h2 class="section-title">Neden Bizi Seçmelisiniz?</h2>
-        <p class="section-subtitle">
-          Uzun yıllardır edindiğimiz deneyim ve expertise'imizle fark yaratıyoruz
-        </p>
-      </div>
-
-      <div class="grid grid-cols-2 advantages-grid">
-        <div class="advantage-item" *ngFor="let advantage of advantages">
-          <div class="advantage-icon">
-            <svg class="icon icon-xl" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" [attr.d]="advantage.iconPath"/>
-            </svg>
-          </div>
-          <div class="advantage-content">
-            <h4 class="advantage-title">{{ advantage.title }}</h4>
-            <p class="advantage-description">{{ advantage.description }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container-modern">
-      <div class="cta-content text-center">
-        <h2 class="cta-title">Birlikte Çalışmaya Hazır mısınız?</h2>
-        <p class="cta-description">
-          Projenizi hayata geçirmek için bugün iletişime geçin.
-          Deneyimli ekibimizle size en iyi çözümleri sunalım.
-        </p>
-        <div class="cta-buttons">
-          <a routerLink="/iletisim" class="btn-modern btn-primary btn-lg">
-            <svg class="icon icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
-            </svg>
-            İletişime Geçin
-          </a>
-          <a routerLink="/projeler" class="btn-modern btn-secondary btn-lg">
-            <svg class="icon icon-sm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/>
-            </svg>
-            Projelerimizi İnceleyin
-          </a>
-        </div>
-      </div>
+  <section class="cta-section-about section-padding">
+    <div class="container-modern text-center">
+      <h2 class="cta-title">Harika Bir Fikriniz mi Var?</h2>
+      <p class="cta-description">
+        Ekibimiz, fikrinizi bir sonraki büyük projeye dönüştürmek için hazır.
+        Hadi tanışalım!
+      </p>
+      <a routerLink="/iletisim" class="btn-modern btn-primary btn-xl">
+        <i class="fas fa-lightbulb me-2"></i>
+        Projenizi Anlatın
+      </a>
     </div>
   </section>
 </div>
